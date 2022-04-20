@@ -1,0 +1,31 @@
+﻿  Chess.cpp
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(69,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(69,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(74,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(74,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(91,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(91,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(96,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(96,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(101,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(101,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(106,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(106,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(111,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(111,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(116,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(116,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(121,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(121,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(126,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(126,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(131,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(131,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(136,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(136,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(141,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(141,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(146,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(146,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Cspt 122\PA9_Teh\Chess.cpp(12,18): warning C4101: 'moving': unreferenced local variable
+  PA9_Teh.vcxproj -> C:\Users\User\Desktop\Cspt 122\PA9_Teh\x64\Debug\PA9_Teh.exe
