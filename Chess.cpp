@@ -9,9 +9,8 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess Game!");
 	sf::Texture t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15;
 
-	int size = 100, moving;
 	int changeWhite = 0, changeBlack = 0;
-	int move = 0;
+	int pieceMoved = 0;
 
 	t1.loadFromFile("images/Chessboard.png");
 	t2.loadFromFile("images/Chess_Pieces/Chess_BlackPawn.png");
@@ -26,8 +25,8 @@ int main()
 	t11.loadFromFile("images/Chess_Pieces/Chess_BlackQueen.png");
 	t12.loadFromFile("images/Chess_Pieces/Chess_WhiteKing.png");
 	t13.loadFromFile("images/Chess_Pieces/Chess_BlackKing.png");
-//	t14
-//	t15
+	t14.loadFromFile("images/Chess_Pieces/Chess_WhiteTransformation.png");
+	t15.loadFromFile("images/Chess_Pieces/Chess_BlackTransformation.png");
 
 	sf::Sprite ChessBoard(t1);
 	sf::Sprite BlackPawn(t2);
@@ -44,7 +43,7 @@ int main()
 	sf::Sprite BlackKing(t13);
 	sf::Sprite WhiteTrans(t14);
 	sf::Sprite BlackTrans(t15);
-	sf::Sprite movedPiece;
+	sf::Sprite movedSprite;
 
 	while (window.isOpen())
 	{
@@ -59,7 +58,104 @@ int main()
 			{
 				window.close();
 			}
-			
+			window.clear();
+			if (a.type == sf::Event::MouseButtonPressed)
+			{
+				if (a.key.code == sf::Mouse::Left)
+				{
+
+					if (board[y][x] != 0)
+					{
+						dx = pos.x - x * size;
+						dy = pos.y - y * size;
+						if (board[y][x] == BLACK_PAWN && move == 1)
+						{
+							pieceMoved = BLACK_PAWN;
+							movedSprite = BlackPawn;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_PAWN && move == 0)
+						{
+							pieceMoved = WHITE_PAWN;
+							movedSprite = WhitePawn;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_ROOK && move == 0)
+						{
+							pieceMoved = WHITE_ROOK;
+							movedSprite = WhiteRook;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == BLACK_ROOK && move == 1)
+						{
+							pieceMoved = BLACK_ROOK;
+							movedSprite = BlackRook;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_KNIGHT && move == 0)
+						{
+							pieceMoved = WHITE_KNIGHT;
+							movedSprite = WhiteKnight;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == BLACK_KNIGHT && move == 1)
+						{
+							pieceMoved = BLACK_KNIGHT;
+							movedSprite = BlackKnight;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_BISHOP && move == 0)
+						{
+							pieceMoved = WHITE_BISHOP;
+							movedSprite = WhiteBishop;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == BLACK_BISHOP && move == 1)
+						{
+							pieceMoved = BLACK_BISHOP;
+							movedSprite = BlackBishop;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_QUEEN && move == 0)
+						{
+							pieceMoved = WHITE_QUEEN;
+							movedSprite = WhiteQueen;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == BLACK_QUEEN && move == 1)
+						{
+							pieceMoved = BLACK_QUEEN;
+							movedSprite = BlackQueen;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == WHITE_KING && move == 0)
+						{
+							pieceMoved = WHITE_KING;
+							movedSprite = WhiteKing;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == BLACK_KING && move == 1)
+						{
+							pieceMoved = BLACK_KING;
+							movedSprite = BlackKing;
+							board[y][x] = 0;
+						}
+						if (board[y][x] == 0)
+						{
+							move = 1;
+							oldPos.x = x;
+							oldPos.y = y;
+						}
+					}
+				}
+			}
+			if (a.type == sf::Event::MouseButtonReleased)
+			{
+				if (a.key.code == sf::Mouse::Left)
+				{
+					int ok = 0;
+				}
+			}
 		}
 
 		window.clear();
@@ -76,8 +172,8 @@ int main()
 		}
 		if (move == 1)
 		{
-			movedPiece.setPosition(pos.x - dx, pos.y - dy);
-			window.draw(movedPiece);
+			movedSprite.setPosition(pos.x - dx, pos.y - dy);
+			window.draw(movedSprite);
 		}
 
 		for (int i = 0; i <= LENGTH; i++)
