@@ -1,6 +1,6 @@
 #pragma once
 
-#define LENGTH 7
+#define LENGTH 8
 #define BLACK_PAWN 1
 #define WHITE_PAWN -1
 #define BLACK_ROOK 2

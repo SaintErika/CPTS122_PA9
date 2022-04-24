@@ -2,15 +2,13 @@
 #include "SFML/Graphics.hpp"
 #include "position.hpp"
 #include "defines.hpp"
+#include "Pieces.hpp"
 
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess Game!");
 	sf::Texture t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15;
-
-	int changeWhite = 0, changeBlack = 0;
-	int pieceMoved = 0;
 
 	t1.loadFromFile("images/Chessboard.png");
 	t2.loadFromFile("images/Chess_Pieces/Chess_BlackPawn.png");
@@ -63,78 +61,149 @@ int main()
 			{
 				if (a.key.code == sf::Mouse::Left)
 				{
-
+					if (changeWhite == 1)
+					{
+						if (pos.y >= transWhite.y * size && pos.y <= (transWhite.y + 1) * size && pos.x >= transWhite.x * size && pos.x <= (transWhite.x + 1) * size)
+						{
+							int xx = pos.x % 100, yy = pos.y % 100;
+							if (xx < 50 && yy < 50 && xx > 0 && yy > 0)
+							{
+								board[transWhite.y][transWhite.x] = WHITE_BISHOP;
+								changeWhite = 0;
+							}
+							if (xx > 50 && xx < 100 && yy < 50 && yy > 0)
+							{
+								board[transWhite.y][transWhite.x] = WHITE_QUEEN;
+								changeWhite = 0;
+							}
+							if (xx > 50 && xx < 100 && yy>50 && yy < 100)
+							{
+								board[transWhite.y][transWhite.x] = WHITE_ROOK;
+								changeWhite = 0;
+							}
+							if (xx < 50 && xx>0 && yy > 50 && y < 100)
+							{
+								board[transWhite.y][transWhite.x] = WHITE_KNIGHT;
+								changeWhite = 0;
+							}
+							if (changeWhite == 0)
+							{
+								KingBlackPos();
+								int d = KingBlackChecker(blackKing.x, blackKing.y);
+								if (d == 0)
+								{
+									checkBlack = 1;
+								}
+							}
+						}
+					}
+					if (changeBlack == 1)
+					{
+						if (pos.y >= transBlack.y * size && pos.y <= (transBlack.y + 1) * size && pos.x >= transBlack.x * size && pos.x <= (transBlack.x + 1) * size)
+						{
+							int xx = pos.x % 100, yy = pos.y % 100;
+							if (xx < 50 && yy < 50 && xx > 0 && yy > 0)
+							{
+								board[transBlack.y][transBlack.x] = BLACK_BISHOP;
+								changeBlack = 0;
+							}
+							if (xx > 50 && xx < 100 && yy < 50 && yy > 0)
+							{
+								board[transBlack.y][transBlack.x] = BLACK_QUEEN;
+								changeBlack = 0;
+							}
+							if (xx > 50 && xx < 100 && yy>50 && yy < 100)
+							{
+								board[transBlack.y][transBlack.x] = BLACK_ROOK;
+								changeBlack = 0;
+							}
+							if (xx < 50 && xx>0 && yy > 50 && y < 100)
+							{
+								board[transBlack.y][transBlack.x] = BLACK_KNIGHT;
+								changeBlack = 0;
+							}
+							if (changeBlack == 0)
+							{
+								KingWhitePos();
+								int d = KingWhiteChecker(whiteKing.x, whiteKing.y);
+								if (d == 0)
+								{
+									checkWhite = 1;
+								}
+							}
+						}
+					}
 					if (board[y][x] != 0)
 					{
 						dx = pos.x - x * size;
 						dy = pos.y - y * size;
-						if (board[y][x] == BLACK_PAWN && move == 1)
+						if (board[y][x] == BLACK_PAWN && turn == 1)
 						{
 							pieceMoved = BLACK_PAWN;
 							movedSprite = BlackPawn;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_PAWN && move == 0)
+						if (board[y][x] == WHITE_PAWN && turn == 0)
 						{
 							pieceMoved = WHITE_PAWN;
 							movedSprite = WhitePawn;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_ROOK && move == 0)
+						if (board[y][x] == WHITE_ROOK && turn == 0)
 						{
 							pieceMoved = WHITE_ROOK;
 							movedSprite = WhiteRook;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == BLACK_ROOK && move == 1)
+						if (board[y][x] == BLACK_ROOK && turn == 1)
 						{
 							pieceMoved = BLACK_ROOK;
 							movedSprite = BlackRook;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_KNIGHT && move == 0)
+						if (board[y][x] == WHITE_KNIGHT && turn == 0)
 						{
 							pieceMoved = WHITE_KNIGHT;
 							movedSprite = WhiteKnight;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == BLACK_KNIGHT && move == 1)
+						if (board[y][x] == BLACK_KNIGHT && turn == 1)
 						{
 							pieceMoved = BLACK_KNIGHT;
 							movedSprite = BlackKnight;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_BISHOP && move == 0)
+						if (board[y][x] == WHITE_BISHOP && turn == 0)
 						{
 							pieceMoved = WHITE_BISHOP;
 							movedSprite = WhiteBishop;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == BLACK_BISHOP && move == 1)
+						if (board[y][x] == BLACK_BISHOP && turn == 1)
 						{
 							pieceMoved = BLACK_BISHOP;
 							movedSprite = BlackBishop;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_QUEEN && move == 0)
+						if (board[y][x] == WHITE_QUEEN && turn == 0)
 						{
 							pieceMoved = WHITE_QUEEN;
 							movedSprite = WhiteQueen;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == BLACK_QUEEN && move == 1)
+						if (board[y][x] == BLACK_QUEEN && turn == 1)
 						{
 							pieceMoved = BLACK_QUEEN;
 							movedSprite = BlackQueen;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == WHITE_KING && move == 0)
+						if (board[y][x] == WHITE_KING && turn == 0)
 						{
 							pieceMoved = WHITE_KING;
 							movedSprite = WhiteKing;
 							board[y][x] = 0;
 						}
-						if (board[y][x] == BLACK_KING && move == 1)
+						if (board[y][x] == BLACK_KING && turn == 1)
 						{
 							pieceMoved = BLACK_KING;
 							movedSprite = BlackKing;
@@ -153,7 +222,193 @@ int main()
 			{
 				if (a.key.code == sf::Mouse::Left)
 				{
-					int ok = 0;
+					int b = 2;
+					if (pieceMoved == WHITE_PAWN && move == 1)
+					{
+						b = PawnWhite(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == BLACK_PAWN && move == 1)
+					{
+						b = PawnBlack(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == WHITE_ROOK && move == 1)
+					{
+						b = RookWhite(oldPos.x, oldPos.y, x, y);
+						if (b == 1 && lWhiteRookMoved == 0 && oldPos.y == 7 && oldPos.x == 0)
+						{
+							lWhiteRookMoved = 1;
+						}
+						if (b == 1 && rWhiteRookMoved == 0 && oldPos.y == 7 && oldPos.x == 7)
+						{
+							rWhiteRookMoved = 1;
+							
+						}
+					}
+					if (pieceMoved == BLACK_ROOK && move == 1)
+					{
+						b = RookBlack(oldPos.x, oldPos.y, x, y);
+						if (b == 1 && lBlackRookMoved == 0 && oldPos.y == 0 && oldPos.x == 7)
+						{
+							lBlackRookMoved = 1;
+						}
+						if (b == 1 && rBlackRookMoved == 0 && oldPos.y == 0 && oldPos.x == 0)
+						{
+							rBlackRookMoved = 1;
+
+						}
+					}
+					if (pieceMoved == WHITE_BISHOP && move == 1)
+					{
+						b = BishopWhite(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == BLACK_BISHOP && move == 1)
+					{
+						b = BishopBlack(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == WHITE_KNIGHT && move == 1)
+					{
+						b = KnightWhite(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == BLACK_KNIGHT && move == 1)
+					{
+						b = KnightBlack(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == WHITE_QUEEN && move == 1)
+					{
+						b = QueenWhite(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == BLACK_QUEEN && move == 1)
+					{
+						b = QueenBlack(oldPos.x, oldPos.y, x, y);
+					}
+					if (pieceMoved == WHITE_KING && move == 1)
+					{
+						b = KingWhite(oldPos.x, oldPos.y, x, y);
+						if (b == 1 && wKingMoved == 0)
+						{
+							wKingMoved = 1;
+						}
+					}
+					if (pieceMoved == BLACK_KING && move == 1)
+					{
+						b = KingBlack(oldPos.x, oldPos.y, x, y);
+						if (b == 1 && bKingMoved == 0)
+						{
+							bKingMoved = 1;
+						}
+					}
+					if (b == 1)
+					{
+						int c = board[y][x];
+						board[y][x] = pieceMoved;
+						if (y == 0 && pieceMoved == WHITE_PAWN)
+						{
+							changeWhite = 1;
+							transWhite.x = x;
+							transWhite.y = y;
+							board[y][x] = 0;
+						}
+						if (y == 7 && pieceMoved == BLACK_PAWN)
+						{
+							changeBlack = 1;
+							transBlack.x = x;
+							transBlack.y = y;
+							board[y][x] = 0;
+						}
+						if (turn == 0) 
+						{
+							if (checkWhite == 1)
+							{
+								KingWhitePos();
+								int check = KingWhiteChecker(whiteKing.x, whiteKing.y);
+								if (check == 0)
+								{
+									board[oldPos.y][oldPos.x] = pieceMoved;
+									board[y][x] = c;
+								}
+								else
+								{
+									checkWhite = 0;
+									KingBlackPos();
+									int check = KingBlackChecker(blackKing.x, blackKing.y);
+									if (check == 0)
+									{
+										checkBlack = 1;
+									}
+									turn = 1;
+								}
+							}
+							else
+							{
+								KingWhitePos();
+								int check = KingWhiteChecker(whiteKing.x, whiteKing.y);
+								if (check == 0)
+								{
+									board[oldPos.y][oldPos.x] = pieceMoved;
+									board[y][x] = c;
+								}
+								else
+								{
+									KingBlackPos();
+									int check = KingBlackChecker(blackKing.x, blackKing.y);
+									if (check == 0)
+									{
+										checkBlack = 1;
+									}
+									turn = 1;
+								}
+							}
+						}
+						else 
+						{
+							if (checkBlack == 1)
+							{
+								KingBlackPos();
+								int check = KingBlackChecker(blackKing.x, blackKing.y);
+								if (check == 0)
+								{
+									board[oldPos.y][oldPos.x] = pieceMoved;
+									board[y][x] = c;
+								}
+								else
+								{
+									checkBlack = 0;
+									KingBlackPos();
+									int check = KingWhiteChecker(whiteKing.x, whiteKing.y);
+									if (check == 0)
+									{
+										checkWhite = 1;
+									}
+									turn = 0;
+								}
+							}
+							else
+							{
+								KingBlackPos();
+								int check = KingBlackChecker(blackKing.x, blackKing.y);
+								if (check == 0)
+								{
+									board[oldPos.y][oldPos.x] = pieceMoved;
+									board[y][x] = c;
+								}
+								else
+								{
+									KingWhitePos();
+									int check = KingWhiteChecker(whiteKing.x, whiteKing.y);
+									if (check == 0)
+									{
+										checkWhite = 1;
+									}
+									turn = 0;
+								}
+							}
+						}
+					}
+					else if (b == 0)
+					{
+						board[oldPos.y][oldPos.x] = pieceMoved;
+					}
+					move = 0;
 				}
 			}
 		}
