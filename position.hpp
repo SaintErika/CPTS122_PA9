@@ -45,7 +45,7 @@ float dx = 0, dy = 0;
 //then with black, attempt to move any piece, to show that it is indeed white's turn.
 //then with white, attempt to move the king's pawn up one space (pawn e3)*/
 
-int board[8][8] =
+/*int board[8][8] =
 { 0, 0, 0, 0, 2, 6, 0, 0,
   0, 0, 0, 0, 0, 1, 1, 1,
   0, 0, 0, 0, 0, 0, 0, 0,
@@ -60,7 +60,22 @@ int board[8][8] =
 //in this test, attempt with white to put the king in check by moving to d6
 //block the check with the rook (rook to e7)
 //move the pawn from e3 to e4
-//move the queen to b1
+//move the queen to b1*/
 
+int board[8][8] =
+{ 2, 0, 4, 0, 6, 0, 0, 2,
+  0, 1, 1, 0, 5, 1, 1, 1,
+  1, 0, 1, 0, 0, 3, 0, 0,
+  0, 0, 0, 0, 1, 0, -4, 0,
+  0, 4, 0, 0, -1, 0, 0, 0,
+  0, 0, -3, -1, 0, -5, 0, 0,
+ -1,-1,-1, 0, 0,-1,-1,-1,
+ -2, 0, 0, 0,-6, 0, -3,-2, }
 
+//castling testing
+
+//in this test, attempt with the white king to castle short (move the king to g1)
+//then castle long (move king to c1)
+//then with black, attempt to castle long (move the king to c8)
+//then castle short (move the king to g8)
 
