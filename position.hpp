@@ -128,9 +128,9 @@ int board[8][8] =
 
 //moving while in check testing
 
-//use rook on b4 to take a6
+//use knight on b4 to take a6
 //use bishop on c8 to take a6
-//use rook on d4 to take c6
+//use knight on d4 to take c6
 //attempt to take with queen, cannot because piece is pinned
 //move king to c7 to remove check
 //attempt to move bishop to f2, cannot because piece is pinned
