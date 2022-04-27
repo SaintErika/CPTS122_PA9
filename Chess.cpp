@@ -1,7 +1,6 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
-#include "positiontest1.hpp" //select for pawn testing
-//#include "position.hpp" //deselect for testing
+#include "position.hpp" //deselect for testing
 #include "defines.hpp"
 #include "Pieces.hpp"
 
