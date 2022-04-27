@@ -1,3 +1,20 @@
+//Project Name: Chess Game
+//Project Description: Basic version of chess
+//Authors: Ethan Teh, Ethan Lyons
+//Project Design: April 8, 2022 - April 27, 2022
+
+/*
+There is no polymorphism present. 
+The team had planned for using polymorphism for a class "piece", 
+creating classes that inherit from piece for each of the individual pieces. 
+The subclasses of piece would then be instantiated and arranged in a 2-D array and manipulated that way, 
+the functions for checking pieces movements being unique to each subclass of piece, 
+and functions relegated to a class with the board to check the state of other pieces. 
+However, due to time constraints the team wanted to focus on creating a program that worked, 
+focusing on the rules and usability of the game alongside the graphics and user inputs, 
+ensuring that the game is playable.
+*/
+
 #pragma once
 #include "position.hpp"
 #include "defines.hpp"
