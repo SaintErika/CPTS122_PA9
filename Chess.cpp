@@ -85,6 +85,12 @@
 //		Kings are considered in "Check" if on a player's turn, the king is
 //			actively available to be captured by the opposing player's
 //			next move.
+//		Castling involves moving the king two spaces to the left or right.
+//			The rook will then move across and to the other side of the 
+//			king. This can only be done if there are no pieces obstructing
+//			either the rook or the king, and neither the king or the rook
+//			have moved from their original squares at the start of
+//			the game.
 //
 //White will always move first.
 //
