@@ -1,3 +1,8 @@
+//Project Name: Chess Game
+//Project Description: Basic version of chess
+//Authors: Ethan Teh, Ethan Lyons
+//Project Design: April 8, 2022 - April 27, 2022
+
 #pragma once
 
 #define LENGTH 8
