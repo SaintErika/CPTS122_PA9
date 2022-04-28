@@ -9,7 +9,15 @@ The team had planned for using polymorphism for a class "piece",
 creating classes that inherit from piece for each of the individual pieces. 
 The subclasses of piece would then be instantiated and arranged in a 2-D array and manipulated that way, 
 the functions for checking pieces movements being unique to each subclass of piece, 
-and functions relegated to a class with the board to check the state of other pieces. 
+and functions relegated to a class with the board to check the state of other pieces.
+It would operate very similar to the code implemented currently, in that positions would be passed between
+the functions in the order of:
+	checking if correct move type
+	checking if piece can move to the square legall
+	checking if piece causes a Check state on yourself
+	checking if piece causes a Check state on opponent (to generate board state)
+The class would also hold data like if pieces are in their original positions, etc.
+
 However, due to time constraints the team wanted to focus on creating a program that worked, 
 focusing on the rules and usability of the game alongside the graphics and user inputs, 
 ensuring that the game is playable.
